@@ -1,0 +1,38 @@
+import personas.*
+import patovas.*
+import pistas.*
+import DJs.*
+import Berghain.*
+
+describe "relaciones generales" {
+	test " patova rochensen,vonLukaz trata de ingresar (darkRoom) pero no lo dejan" {
+		berghain.patovaDeTurno(rochensen)	
+		assert.equals("hoy no es tu noche",berghain.puedePasar(vonLukaz,darkRoom))
+		}
+		
+	test " patova rodrigsen,vonLukaz trata de ingresar pero no lo deja, cantidad de
+ personas bailando queda en 0 " {
+		berghain.patovaDeTurno(rodrigsen)
+		berghain.puedePasar(vonLukaz,mainRoom)
+		assert.equals(0,berghain.cuantosBailanEn(mainRoom))
+		}
+		
+	test " gonzen ingresa a mainRoom con rochensen de patova (a panoramaBar)y si baila
+ en alguna pista"{
+ 		berghain.patovaDeTurno(rochensen)
+ 		berghain.puedePasar(gonzen,panoramaBar)
+ 		assert.that(berghain.gonzenEstaBailandoEnAlgunaPista())
+	}
+		
+	test " gonzen no esta bailando en ninguna pista"{
+		assert.notThat(berghain.gonzenEstaBailandoEnAlgunaPista())
+	}
+	
+	test "rodrigsen de patova, ingresan bianker y gonzer a darkRoom, entonces hay 2
+personas bailando en darkRoom"{
+		berghain.patovaDeTurno(rodrigsen)
+		berghain.puedePasar(bianker,darkRoom)
+		berghain.puedePasar(gonzen,darkRoom)
+		assert.equals(2,berghain.cuantosBailanEn(darkRoom))
+	}
+}

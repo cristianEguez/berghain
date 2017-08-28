@@ -1,0 +1,52 @@
+import DJs.*
+import pistas.*
+import personas.*
+
+describe " personas interactuando con pistas"{
+	
+	test "vonLukaz ingresa a mainRoom, bailan todos y el queda con 110 de energia" {
+		mainRoom.agregarPersona(vonLukaz)
+		mainRoom.bailenTodos()
+		assert.equals(110,vonLukaz.energia())
+	}
+	
+	test "bianker ingresa a panoramaBar con dixon de dj, bailan todos y ella queda con 200 de diversion" {
+		panoramaBar.dj(dixon)
+		panoramaBar.agregarPersona(bianker)
+		panoramaBar.bailenTodos()
+		assert.equals(200,bianker.diversion())
+	}	
+	
+	test "gonzen ingresa a darkRoom, todos bailan y ahora tiene 34"{
+		darkRoom.agregarPersona(gonzen)
+		darkRoom.bailenTodos()
+		assert.equals(34,gonzen.edad())
+	}
+	
+	test "ingresan vonLukaz,bianker y gonzen a mainRoom, hay 3 personas bailando"{
+		mainRoom.agregarPersona(vonLukaz)
+		mainRoom.agregarPersona(bianker)
+		mainRoom.agregarPersona(gonzen)
+		assert.equals(3,mainRoom.cantidadDePersonasBailando())
+	}
+	
+	test "gonsszen ingresa a darkRoom, entonces baila en esa pista"{
+		darkRoom.agregarPersona(gonzen)
+		assert.that(darkRoom.estaBailando(gonzen))
+	}
+	
+	test "vonLukaz ingresa a panoramaBar con marcelDettmann de dj, bailan todos y el queda con 1070 de diversion" {
+		panoramaBar.dj(marcelDettmann)
+		panoramaBar.agregarPersona(vonLukaz)
+		panoramaBar.bailenTodos()
+		assert.equals(1070,vonLukaz.diversion())
+	}
+	
+		test "gonzen ingresa a panoramaBar con tommyMunioz de dj, bailan todos y el queda con 10 de energia" {
+		panoramaBar.dj(tommyMunioz)
+		panoramaBar.agregarPersona(gonzen)
+		panoramaBar.bailenTodos()
+		assert.equals(10,gonzen.energia())
+	}
+	
+}

@@ -1,0 +1,23 @@
+import personas.*
+
+describe " actividades de personas"{
+	
+	test "aumento la energia de vonLukaz en 30, le queda 180 de energia" {
+		vonLukaz.aumentarEnergia(30)
+		assert.equals(180,vonLukaz.energia())
+	}
+	
+	test "diminuyo la diversion de bianker en 55, le queda 25 de diversion" {
+		bianker.disminuirDiversion(55)
+		assert.equals(25,bianker.diversion())
+	}
+	
+	test "gonzen cumple años, ahora tiene 34"{
+		gonzen.cumpleanios()
+		assert.equals(34,gonzen.edad())
+	}
+	
+	test "el color de remera de bianker es negra"{
+		assert.equals("negra",bianker.colorRemera())
+	}
+}

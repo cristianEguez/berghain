@@ -1,0 +1,42 @@
+import personas.*
+import patovas.*
+
+describe " interaccion de personas y patovas"{
+		
+	test "rochensen no deja pasar a vonLukaz"{
+		assert.notThat(rochensen.dejaPasarA(vonLukaz))
+	}
+	
+	test "rochensen deja pasar a bianker"{
+		assert.that(rochensen.dejaPasarA(bianker))
+	}
+	
+	test "rochensen deja pasar a gonzen"{
+		assert.that(rochensen.dejaPasarA(gonzen))
+	}
+	
+	test "rodrigsen no deja pasar a vonLukaz"{
+		assert.notThat(rodrigsen.dejaPasarA(vonLukaz))
+	}
+	
+	test "rodrigsen deja pasar a bianker"{
+		assert.that(rodrigsen.dejaPasarA(bianker))
+	}
+	
+	test "rodrigsen deja pasar a gonzen"{
+		assert.that(rodrigsen.dejaPasarA(gonzen))
+	}
+	
+	test "gushtavotruccensen no deja pasar a vonLukaz"{
+		assert.notThat(gushtavotruccensen.dejaPasarA(vonLukaz))
+	}
+	
+	test "gushtavotruccensen no deja pasar a bianker"{
+		assert.notThat(gushtavotruccensen.dejaPasarA(bianker))
+	}
+	
+	test "gushtavotruccensen no deja pasar a gonzen"{
+		assert.notThat(gushtavotruccensen.dejaPasarA(gonzen))
+	}
+	
+}
